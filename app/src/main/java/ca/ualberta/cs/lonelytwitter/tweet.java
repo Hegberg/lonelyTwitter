@@ -13,6 +13,11 @@ public abstract class tweet {
     private boolean isImportant;
     protected List moods = new ArrayList();
 
+    @Override
+    public String toString(){
+        return date.toString() + " | " + message;
+    }
+
     public abstract Boolean isImportantAsWell();
 
     public tweet(List moods) {
@@ -40,6 +45,7 @@ public abstract class tweet {
 
     public tweet(String message) {
         this.message = message;
+        this.date = new Date();
     }
 
     public void setMessage(String message) throws TooLong {
