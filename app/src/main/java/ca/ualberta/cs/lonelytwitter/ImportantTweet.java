@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by hegberg on 1/12/16.
  */
-public class ImportantTweet extends tweet implements Tweetable{
+public class ImportantTweet extends Tweet implements Tweetable{
     @Override
     public Boolean isImportantAsWell() {
         return true;

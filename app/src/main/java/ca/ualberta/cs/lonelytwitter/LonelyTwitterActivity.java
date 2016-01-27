@@ -30,8 +30,8 @@ public class LonelyTwitterActivity extends Activity {
 	private EditText bodyText;
 	private ListView oldTweetsList;
 
-	private ArrayList<tweet> tweets = new ArrayList<tweet>();
-	private ArrayAdapter<tweet> adapter;
+	private ArrayList<Tweet> tweets = new ArrayList<Tweet>();
+	private ArrayAdapter<Tweet> adapter;
 	
 	/** Called when the activity is first created. */
 	@Override
@@ -46,11 +46,10 @@ public class LonelyTwitterActivity extends Activity {
 		Button clearButton = (Button) findViewById(R.id.clear);
 
 		saveButton.setOnClickListener(new View.OnClickListener() {
-
 			public void onClick(View v) {
 				setResult(RESULT_OK);
 				String text = bodyText.getText().toString();
-				tweet latestTweet = new NormalTweet(text);
+				Tweet latestTweet = new NormalTweet(text);
 				ImportantTweet latestImportantTweet = new ImportantTweet(text);
 				// latestTweet.setMessage(latestTweet.getMessage() + "!");
 				tweets.add(latestTweet);
@@ -78,7 +77,7 @@ public class LonelyTwitterActivity extends Activity {
 		super.onStart();
 		loadFromFile();
 		//String[] tweets = loadFromFile();
-		adapter = new ArrayAdapter<tweet>(this,
+		adapter = new ArrayAdapter<Tweet>(this,
 				R.layout.list_item, tweets);
 		oldTweetsList.setAdapter(adapter);
 	}
@@ -101,7 +100,7 @@ public class LonelyTwitterActivity extends Activity {
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			tweets = new ArrayList<tweet>();
+			tweets = new ArrayList<Tweet>();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();

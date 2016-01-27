@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by hegberg on 1/12/16.
  */
-public abstract class tweet {
+public abstract class Tweet {
     protected Date date;
     protected String message;
     private boolean isImportant;
@@ -20,7 +20,7 @@ public abstract class tweet {
 
     public abstract Boolean isImportantAsWell();
 
-    public tweet(List moods) {
+    public Tweet(List moods) {
         this.moods = moods;
     }
 
@@ -32,18 +32,18 @@ public abstract class tweet {
         this.moods = moods;
     }
 
-    public tweet(Date date, String message, List moods) {
+    public Tweet(Date date, String message, List moods) {
         this.date = date;
         this.message = message;
         this.moods = moods;
     }
 
-    public tweet(Date date, String message) {
+    public Tweet(Date date, String message) {
         this.date = date;
         this.message = message;
     }
 
-    public tweet(String message) {
+    public Tweet(String message) {
         this.message = message;
         this.date = new Date();
     }
