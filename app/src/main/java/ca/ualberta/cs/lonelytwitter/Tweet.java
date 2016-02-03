@@ -15,6 +15,9 @@ public abstract class Tweet {
     private boolean isImportant;
     protected List moods = new ArrayList();
 
+    /**
+     * @return String
+     */
     @Override
     public String toString(){
         return date.toString() + " | " + message;
@@ -22,6 +25,9 @@ public abstract class Tweet {
 
     public abstract Boolean isImportantAsWell();
 
+    /**
+     * @param moods
+     */
     public Tweet(List moods) {
         this.moods = moods;
     }
