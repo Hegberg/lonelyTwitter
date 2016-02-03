@@ -4,6 +4,9 @@ import java.util.Date;
 
 /**
  * Created by hegberg on 1/12/16.
+ * @author hegberg
+ * @see HappyMood
+ * @see SadMood
  */
 public abstract class AbstractMood {
     //protected String mood;

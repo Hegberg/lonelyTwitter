@@ -4,6 +4,8 @@ import java.util.Date;
 
 /**
  * Created by hegberg on 1/12/16.
+ * @author hegberg
+ * @see AbstractMood
  */
 public class HappyMood extends AbstractMood {
     private String isMood = "Happy!";

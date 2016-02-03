@@ -5,6 +5,8 @@ import java.util.List;
 
 /**
  * Created by hegberg on 1/12/16.
+ * @author hegberg
+ * @see Tweet
  */
 public class NormalTweet extends Tweet implements Tweetable{
     public NormalTweet(Date date, String message, List mood) {

@@ -6,6 +6,8 @@ import java.util.List;
 
 /**
  * Created by hegberg on 1/12/16.
+ * @author hegberg
+ * @see LonelyTwitterActivity
  */
 public abstract class Tweet {
     protected Date date;

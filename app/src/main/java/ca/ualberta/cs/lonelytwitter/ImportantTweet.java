@@ -5,6 +5,8 @@ import java.util.List;
 
 /**
  * Created by hegberg on 1/12/16.
+ * @author hegberg
+ * @see Tweet
  */
 public class ImportantTweet extends Tweet implements Tweetable{
     @Override
