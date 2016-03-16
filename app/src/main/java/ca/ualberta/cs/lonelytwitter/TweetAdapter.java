@@ -2,6 +2,7 @@ package ca.ualberta.cs.lonelytwitter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +29,8 @@ public class TweetAdapter extends ArrayAdapter<Tweet> {
         String dateString = tweet.getDate().toString();
 
         //TODO: initialize this:
-        Bitmap thumbnail = null;
+        //Bitmap thumbnail = null;
+        Bitmap thumbnail = tweet.getThumbnail();
 
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
@@ -45,7 +47,11 @@ public class TweetAdapter extends ArrayAdapter<Tweet> {
         tweetDate.setText(dateString);
 //        if(thumbnail != null) {
             // Only add it if it's null.
+        try{
             tweetImage.setImageBitmap(thumbnail);
+        } catch (Exception e ){
+            Log.i("erer","errrrorororor");
+        }
 //        }
 
         // Return the completed view to render on screen

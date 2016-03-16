@@ -3,6 +3,7 @@ package ca.ualberta.cs.lonelytwitter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
+import android.util.Log;
 
 import com.google.gson.Gson;
 
@@ -26,6 +27,48 @@ public abstract class Tweet {
     protected Date date;
     protected String message;
 
+    protected Bitmap thumbnail;
+    protected String thumbnailBase64;
+
+    public Tweet(Date date, String message, Bitmap bitmap){
+        this.date = date;
+        this.message = message;
+        this.thumbnail = bitmap;
+    }
+
+    public void addThumbnail(Bitmap bitmap){
+        if(bitmap != null) {
+            thumbnail = bitmap;
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+            byte[] b = byteArrayOutputStream.toByteArray();
+            thumbnailBase64 = Base64.encodeToString(b, Base64.DEFAULT);
+        }
+    }
+
+    public Bitmap getThumbnail() {
+        if (thumbnail == null && thumbnailBase64 != null){
+            byte[] decodeString = Base64.decode(thumbnailBase64, Base64.DEFAULT);
+            try {
+                thumbnail = BitmapFactory.decodeByteArray(decodeString, 0, decodeString.length);
+            } catch (Exception e){
+                Log.i("hi", "error");
+            }
+        }
+        return thumbnail;
+    }
+
+    public void setThumbnail(Bitmap thumbnail) {
+        this.thumbnail = thumbnail;
+    }
+
+    public String getThumbnailBase64() {
+        return thumbnailBase64;
+    }
+
+    public void setThumbnailBase64(String thumbnailBase64) {
+        this.thumbnailBase64 = thumbnailBase64;
+    }
 
     public Tweet(Date date, String message) {
         this.date = date;
